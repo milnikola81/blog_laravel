@@ -11,6 +11,8 @@
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <link href="/css/blog.css" rel="stylesheet">
+
   </head>
 
   <body>
@@ -19,20 +21,11 @@
       <div class="container">
         <nav class="nav blog-nav">
           <a class="nav-link active" href="#">Home</a>
-          <a class="nav-link" href="#">New features</a>
-          <a class="nav-link" href="#">Press</a>
-          <a class="nav-link" href="#">New hires</a>
-          <a class="nav-link" href="#">About</a>
         </nav>
       </div>
     </div>
 
-    <div class="blog-header">
-      <div class="container">
-        <h1 class="blog-title">The Bootstrap Blog</h1>
-        <p class="lead blog-description">An example blog template built with Bootstrap.</p>
-      </div>
-    </div>
+    @include('partials.header')
 
 
     <div class="container">
@@ -44,10 +37,6 @@
           
             @yield('content')
 
-          <nav class="blog-pagination">
-            <a class="btn btn-outline-primary" href="#">Older</a>
-            <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-          </nav>
 
         </div><!-- /.blog-main -->
 
@@ -87,12 +76,7 @@
 
     </div><!-- /.container -->
 
-    <footer class="blog-footer">
-      <p>Blog template built for <a href="https://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-      <p>
-        <a href="#">Back to top</a>
-      </p>
-    </footer>
+    @include('partials.footer')
 
 
     <!-- Bootstrap core JavaScript

@@ -10,12 +10,12 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::published();
-        return view('posts', compact('posts'));
+        return view('posts/index', compact('posts'));
     }
 
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        return view('single-post', compact('post'));
+        return view('posts/show', compact('post'));
     }
 }
