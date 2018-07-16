@@ -13,6 +13,10 @@ class Post extends Model
     protected function published() {
         return self::where('published', 1)->get();
     }
+
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
 }
 
 

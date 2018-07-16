@@ -15,8 +15,9 @@ class PostController extends Controller
 
     public function show($id)
     {
-        $post = Post::findOrFail($id);
-        return view('posts/show', compact('post'));
+        $post = Post::with('comments')->find($id); // u objekat $post dodaje niz komentara vezanih za id ovog posta u asoc niz comments 
+        //$post = Post::findOrFail($id);
+        return view('posts.show', compact(['post']));
     }
 
     public function create() {
@@ -24,6 +25,8 @@ class PostController extends Controller
     }
 
     public function store() {
+
+        $this->validate(request(), ['title' => 'required', 'body' => 'required']);
 
         Post::create([
             'title' => request('title'),
