@@ -16,8 +16,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/posts/{id}', 'PostController@show');
-
-
-
+Route::get('/posts/create', 'PostController@create');
+Route::get('/posts/{id}', 'PostController@show'); // moguce dodavanje naziva za lakse prepoznavanje sa kljucem 'as'
 Route::get('/posts', 'PostController@index');
+Route::post('/posts', 'PostController@store');
+
