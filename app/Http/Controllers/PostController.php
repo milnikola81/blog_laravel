@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => 'index', 'show']);
+    }
     public function index()
     {
         $posts = Post::published();
@@ -31,7 +35,8 @@ class PostController extends Controller
         Post::create([
             'title' => request('title'),
             'body' => request('body'),
-            'published' => (bool) request('published')
+            'published' => (bool) request('published'),
+            'user_id' => auth()->user()->id
         ]);
         //dd(request()->all());
         //dd('store');
