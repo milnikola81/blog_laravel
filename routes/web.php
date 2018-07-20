@@ -11,6 +11,7 @@
 |
 */
 use App\Post;
+use App\User;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,6 +22,9 @@ Route::get('/posts/{id}', 'PostController@show'); // moguce dodavanje naziva za 
 Route::get('/posts', 'PostController@index');
 Route::post('/posts', 'PostController@store');
 
+Route::post('/posts/{post}', 'CommentController@store');
+
+
 Route::get('/register', 'RegisterController@create');
 Route::post('/register', 'RegisterController@store');
 
@@ -28,5 +32,9 @@ Route::post('/register', 'RegisterController@store');
 Route::get('/logout', 'LoginController@destroy');
 Route::get('/login', 'LoginController@create')->name('login'); // ovo smo dodavali zbog nekakve greske koja je iskakala ali ne znam kakve
 Route::post('/login', 'LoginController@store');
+
+Route::get('/users/{user}', 'UserController@show');
+
+Route::get('/posts/tag/{tag}', 'TagController@showPostsWithTag');
 
 

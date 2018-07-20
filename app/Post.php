@@ -21,6 +21,10 @@ class Post extends Model
     public function user() {
         return $this->belongsTo(User::Class); // this will return join of comments associated wwith movie
     }
+
+    public function tags() {
+        return $this->belongsToMany(Tag::class);
+    }
 }
 
 
