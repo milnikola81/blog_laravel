@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => 'index', 'show']);
+        $this->middleware('auth', ['except' => ['index', 'show']]);
     }
     public function index()
     {
@@ -38,16 +38,7 @@ class PostController extends Controller
             'published' => (bool) request('published'),
             'user_id' => auth()->user()->id
         ]);
-        //dd(request()->all());
-        //dd('store');
-        //return view('posts.store');
-        // $post = new Post;
 
-        // $post->title = request('title');
-        // $post->body = request('body');
-        // $post->published = (bool) request('published');
-
-        // $post->save();
         return redirect('/posts');
     }
 

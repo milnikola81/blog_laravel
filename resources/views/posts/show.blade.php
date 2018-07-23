@@ -4,7 +4,7 @@
     <div class="blog-post">
         <h2 class="blog-post-title">{{ $post->title }}</h2>
         <p class="blog-post-meta">{{ $post->created_at }}</p>
-        <p class="blog-post-meta"><a href="/users/{{$post->user['id']}}">{{ $post->user['name'] }}</a></p>
+        <p class="blog-post-meta"><a href="/users/{{$post->user->id}}">{{ $post->user->name }}</a></p>
 
         @if(count($post->tags))
             <ul>

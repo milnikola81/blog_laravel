@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 class CommentController extends Controller
 {
     public function store(Post $post) {
+        
         $this->validate(request(),[
             'text' => 'required'
         ]);

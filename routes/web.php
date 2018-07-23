@@ -25,7 +25,7 @@ Route::post('/posts', 'PostController@store');
 Route::post('/posts/{post}', 'CommentController@store');
 
 
-Route::get('/register', 'RegisterController@create');
+Route::get('/register', 'RegisterController@create')->name('register');
 Route::post('/register', 'RegisterController@store');
 
 

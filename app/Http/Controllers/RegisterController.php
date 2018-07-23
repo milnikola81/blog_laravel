@@ -30,7 +30,7 @@ class RegisterController extends Controller
             'password'=>bcrypt(request('password'))
         ]);
 
-        auth()->login($user);  //ugradena funkcija za ogovanje usera
+        auth()->login($user);  //ugradjena funkcija za ogovanje usera
         
         return redirect('/posts');
     }

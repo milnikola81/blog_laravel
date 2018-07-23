@@ -5,5 +5,5 @@ You've got a new comment on your <a href="posts/{{url('posts/'.$post->id) }}">{{
 Comment content:
 
 <p>
-    {{ $post->comments->last() }}
+    {{ $post->comments->last()->text }}
 </p>
