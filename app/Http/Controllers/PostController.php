@@ -13,7 +13,7 @@ class PostController extends Controller
     }
     public function index()
     {
-        $posts = Post::published();
+        $posts = Post::paginate(10);
         return view('posts/index', compact('posts'));
     }
 
