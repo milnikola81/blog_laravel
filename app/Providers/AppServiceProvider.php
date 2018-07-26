@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -14,6 +15,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        view()->composer('layouts.master', function($view) {
+            $tags = \App\Tag::has('posts')->get();
+
+            $view->with(compact('tags'));
+        });
     }
 
     /**

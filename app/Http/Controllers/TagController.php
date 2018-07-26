@@ -9,8 +9,7 @@ class TagController extends Controller
 {
     public function showPostsWithTag($tag)
     {
-        $tagModel = Tag::where('name', $tag)->first();
-        $posts = $tagModel->posts;
+        $posts = Tag::where('name', $tag)->first()->posts()->paginate(10);
         return view('posts.index', compact('posts'));
     }
 }
